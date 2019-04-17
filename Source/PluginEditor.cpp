@@ -57,6 +57,9 @@ void MenuTestAudioProcessorEditor::showPopupMenu()
     menu.addItem(1, "Menu Text1");
     menu.addItem(2, "Menu Text2");
 
+    // with `showMenuAsync` the popup won't be a modal window
+    // also when parent component is NOT nullptr then if menu is shown and the user moves the plugin window,
+    // the menu will still be visible but inside the plugin window.
     menu.showMenuAsync (PopupMenu::Options().withParentComponent(this)
                                             .withTargetComponent (&buttonTriggerMenu)
                                             .withItemThatMustBeVisible (1) // change this depending on the current menu state
